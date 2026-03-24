@@ -1,0 +1,22 @@
+/**
+ * Copyright IBM Corp. 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '../../scss/docs';
+@use '../../../src/elements/tile';
+
+@use '../../../src/elements/text-input';
+@use '../../../src/elements/paragraph';
+
+$name: 'tile';
+
+@include docs.demo($name, 'default') {
+  @include tile.styles;
+
+  // ↓ for demo only ↓
+  @include text-input.styles;
+  @include paragraph.styles;
+};

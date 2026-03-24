@@ -1,0 +1,118 @@
+<!--
+Copyright IBM Corp. 2026
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carbon element styles</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./scss/index.scss" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#">
+          Carbon
+          <b>element styles</b>
+          <span class="version"></span>
+        </a>
+      </nav>
+
+      <div id="controls">
+        <label>
+          <select aria-label="Theme" data-control-id="theme">
+            <option value="white">White</option>
+            <option value="g10">Gray 10</option>
+            <option value="g90">Gray 90</option>
+            <option value="g100">Gray 100</option>
+          </select>
+        </label>
+        <label>
+          <select aria-label="Mode" data-control-id="mode">
+            <option value="productive">Productive</option>
+            <option value="expressive">Expressive</option>
+          </select>
+        </label>
+        <label>
+          <select aria-label="Size" data-control-id="size">
+            <option value="xs">XS</option>
+            <option value="sm">SM</option>
+            <option value="md">MD</option>
+            <option value="lg">LG</option>
+            <option value="xl">XL</option>
+          </select>
+        </label>
+        <label>
+          <select aria-label="Density" data-control-id="density">
+            <option value="condensed">Condensed</option>
+            <option value="normal">Normal</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <nav>
+      <ul></ul>
+    </nav>
+
+    <main>
+      <div id="demo"></div>
+      <div id="fade"></div>
+      <div id="docs">
+        <div role="tablist">
+          <button role="tab" type="submit" id="docs__tab--overview" aria-controls="docs__tabpanel--overview" aria-selected="false">Overview</button>
+          <button role="tab" type="submit" id="docs__tab--config" aria-controls="docs__tabpanel--config" aria-selected="false">Configuration</button>
+          <button role="tab" type="submit" id="docs__tab--html" aria-controls="docs__tabpanel--html" aria-selected="false">HTML</button>
+          <button role="tab" type="submit" id="docs__tab--scss" aria-controls="docs__tabpanel--scss" aria-selected="false">SCSS</button>
+        </div>
+        <div role="tabpanel" id="docs__tabpanel--overview" aria-labelledby="docs__tab--overview" hidden>
+          <div>
+            <h1></h1>
+            <div class="overview">
+              <section>
+                <h2>References</h2>
+                <ul></ul>
+              </section>
+              <section>
+                <h2>Notes</h2>
+                <ul></ul>
+              </section>
+            </div>
+            <ul></ul>
+          </div>
+        </div>
+        <div role="tabpanel" id="docs__tabpanel--config" aria-labelledby="docs__tab--config" hidden>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" id="docs__tabpanel--html" aria-labelledby="docs__tab--html" hidden>
+          <div>
+<pre><code></code></pre>
+          </div>
+        </div>
+        <div role="tabpanel" id="docs__tabpanel--scss" aria-labelledby="docs__tab--scss" hidden>
+          <div>
+<pre><code></code></pre>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="./js"></script>
+  </body>
+</html>
