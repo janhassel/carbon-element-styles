@@ -4,13 +4,14 @@
   "version": "0.2.0-rc.2",
   "license": "Apache-2.0",
   "type": "module",
-  "sass": "src/index.scss",
+  "sass": "index.scss",
   "repository": {
     "type": "git",
     "url": "https://github.com/carbon-design-system/carbon-element-styles.git"
   },
   "files": [
-    "src"
+    "index.scss",
+    "scss"
   ],
   "keywords": [
     "ibm",
