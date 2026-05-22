@@ -11,6 +11,8 @@
 
 @use '../../../scss/config';
 
+@use '../../../scss/prebuilt/editorial/elements' as editorial-elements;
+
 @use '../../elements/abbreviation';
 @use '../../elements/address';
 @use '../../elements/anchor';
@@ -88,4 +90,8 @@
   :host([data-#{carbon-config.$prefix}-#{config.$prefix}-density="#{$density}"]) {
     @include element-styles.density($density);
   }
+}
+
+:host([data-kind="page"]) {
+  @include editorial-elements.styles;
 }
