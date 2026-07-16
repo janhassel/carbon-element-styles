@@ -1,0 +1,31 @@
+/**
+ * Copyright IBM Corp. 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint';
+
+@use '../../../scss/layout';
+@use '../../../scss/elements/side-navigation';
+
+:host {
+  @include layout.size('sm');
+
+  @include side-navigation.styles((
+    selector: '&',
+  ));
+
+  transition: translate layout.$mode--transition-duration layout.$mode--transition-timing-function;
+  z-index: 9999;
+  inset-block-start: calc(2.5rem + 0.0625rem);
+
+  @include breakpoint.breakpoint-down('lg') {
+    translate: -100% 0;
+  }
+}
+
+:host([data-is-expanded="true"]) {
+  translate: 0 0;
+}

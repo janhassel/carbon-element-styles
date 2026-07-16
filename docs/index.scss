@@ -1,0 +1,81 @@
+/**
+ * Copyright IBM Corp. 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/config' as carbon-config with (
+  $use-akamai-cdn: true,
+);
+@use '@carbon/styles/scss/fonts';
+
+@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/breakpoint';
+
+@use '../scss/utilities/carbon';
+@use '../scss/layout';
+@use '../scss/elements/body';
+
+:root {
+  @include carbon.emit-carbon-colors;
+  @include carbon.emit-carbon-tokens('white');
+
+  @include layout.density('normal');
+  @include layout.mode('productive');
+  @include layout.size('md');
+
+  background-color: theme.$background;
+}
+
+@each $theme in ('white', 'g10', 'g90', 'g100') {
+  :root[data-theme="#{$theme}"] {
+    @include carbon.emit-carbon-tokens($theme);
+  }
+}
+
+@include body.styles;
+
+main {
+  block-size: calc(100svb - 2.5rem - 0.0625rem);
+  margin-inline-start: 16rem;
+  overflow: auto;
+
+  @include breakpoint.breakpoint-down('lg') {
+    margin-inline-start: 0;
+  }
+}
+
+main::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: theme.$overlay;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity layout.$mode--transition-duration layout.$mode--transition-timing-function;
+}
+
+:root[data-has-overlay="true"] main::after {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@each $mode in ('productive', 'expressive') {
+  :root[data-mode="#{$mode}"] cds-es-docs-content {
+    @include layout.mode($mode);
+  }
+}
+
+@each $size in ('xs', 'sm', 'md', 'lg', 'xl') {
+  :root[data-size="#{$size}"] cds-es-docs-content {
+    @include layout.size($size);
+  }
+}
+
+@each $density in ('condensed', 'normal') {
+  :root[data-density="#{$density}"] cds-es-docs-content {
+    @include layout.density($density);
+  }
+}

@@ -28,9 +28,10 @@
     "postinstall": "ibmtelemetry --config=telemetry.yml",
     "dev": "vite docs",
     "build": "npm run build:icons && npm run build:prebuilts && npm run build:docs",
+    "build:scss-docs": "node tasks/build-scss-docs.ts",
     "build:icons": "node tasks/build-icons.ts",
     "build:prebuilts": "node tasks/build-prebuilts.ts",
-    "build:docs": "vite build docs"
+    "build:docs": "npm run build:scss-docs && vite build docs"
   },
   "dependencies": {
     "@ibm/telemetry-js": "^1.11.0"
@@ -40,6 +41,8 @@
   },
   "devDependencies": {
     "@carbon/icons": "^11.77.0",
+    "@types/node": "^26.1.1",
+    "marked": "^18.0.6",
     "sass": "^1.98.0",
     "vite": "^8.0.3"
   }

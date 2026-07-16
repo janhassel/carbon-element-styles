@@ -1,0 +1,48 @@
+/**
+ * Copyright IBM Corp. 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/spacing';
+
+@use '../../../scss/layout';
+
+@mixin demo($id) {
+  :host([request-id="#{$id}"]) > .demo {
+    @content;
+  }
+}
+
+:host {
+  block-size: 100%;
+  display: grid;
+  grid-template-rows: 1fr 0 20rem;
+}
+
+:host > .demo {
+  @include layout.mode--body;
+  position: relative;
+  padding: spacing.$spacing-07;
+  overflow: auto;
+  translate: 0 0;
+}
+
+:host > .fade {
+  block-size: 1.5rem;
+  background-image: linear-gradient(
+    transparent,
+    theme.$layer-background,
+  );
+  opacity: 0.5;
+  translate: 0 -100%;
+  pointer-events: none;
+}
+
+:host > cds-es-docs-tabs {
+  @include layout.mode('productive');
+  @include layout.size('md');
+  @include layout.density('normal');
+}
